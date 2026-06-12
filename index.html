@@ -3,307 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TROPFEN-BRUCH | Technische Chemie 2026</title>
-    <link href="fonts.googleapis.com" rel="stylesheet">
+    <title>TROPFEN-BRUCH | Смачивающий агент 2026</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         :root { 
             --prussian: #1a3a5f; 
             --german-gray: #f4f4f4;
-            --text: #000000; 
-            --success: #28a745;
-            --error: #dc3545;
+            --text: #111111; 
+            --accent-red: #dc3545;
         }
-        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; color: var(--text); background: #ffffff; line-height: 1.5; }
-        header { padding: 50px 0 30px; text-align: center; }
-        .logo { font-weight: 700; font-size: 1.8rem; letter-spacing: 4px; text-transform: uppercase; }
         
-        /* polosa92 */
-        .brand-bar { height: 1cm; background-color: var(--prussian); width: 100%; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .watermark-grid { position: absolute; width: 300%; height: 800%; display: flex; flex-wrap: wrap; transform: rotate(-45deg); align-content: center; justify-content: center; pointer-events: none; gap: 4px 12px; }
-        .watermark-grid span { color: rgba(255, 255, 255, 0.22); font-size: 7px; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
-
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-
-        /* kraselphoto */
-        .carousel-container { width: 100%; height: 500px; overflow: hidden; border-radius: 12px; position: relative; background: var(--german-gray); margin-bottom: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .carousel-track { display: flex; height: 100%; transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); }
-        .slide { min-width: 100%; height: 100%; background: #ccc center/cover no-repeat; position: relative; }
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; color: var(--text); background: #ffffff; line-height: 1.6; }
         
-        /* ikon fo krusel 2026 */
-        .slide:nth-child(1) { background-image: url("none"); } /* lab glass */
-        .slide:nth-child(2) { background-image: url('images.uisseh.cm'); } /*  */
-        .slide:nth-child(3) { background-image: url('images.uiss.cm'); } /*  */
+        /* Техническая полоса с водяным знаком */
+        .brand-bar { height: 35px; background-color: var(--prussian); width: 100%; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .watermark-grid { position: absolute; width: 200%; height: 500%; display: flex; flex-wrap: wrap; transform: rotate(-15deg); align-content: center; justify-content: center; pointer-events: none; gap: 8px 16px; }
+        .watermark-grid span { color: rgba(255, 255, 255, 0.15); font-size: 8px; font-weight: 900; text-transform: uppercase; white-space: nowrap; font-family: 'JetBrains Mono', monospace; }
 
-        .nav-dots { position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: center; gap: 8px; z-index: 10; }
-        .dot { width: 40px; height: 4px; background: rgba(255,255,255,0.3); cursor: pointer; transition: 0.3s; }
-        .dot.active { background: #fff; width: 60px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
-        .tech-block { margin-top: 60px; border-top: 2px solid var(--text); padding-top: 20px; }
-        h2 { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
+        /* Главная витрина товара */
+        .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-bottom: 60px; align-items: center; }
+        
+        .product-image-container { background: var(--german-gray); border-radius: 4px; padding: 20px; text-align: center; border: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; min-height: 450px; }
+        .product-image { max-width: 100%; max-height: 450px; object-fit: contain; }
 
-        /* kalkulates koncentrater */
-        .calc-box { background: var(--german-gray); padding: 30px; border-radius: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; }
-        input { padding: 12px; border: 1px solid #ccc; font-family: 'JetBrains Mono'; font-size: 1rem; width: 100%; box-sizing: border-box; outline: none; }
+        .product-info h1 { font-size: 2.5rem; font-weight: 900; letter-spacing: -1px; margin: 0 0 10px 0; text-transform: uppercase; }
+        .product-info .subtitle { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #666; letter-spacing: 2px; margin-bottom: 25px; }
+        .product-info .description { font-size: 1.05rem; margin-bottom: 30px; color: #333; }
+
+        /* Кнопка Купить (Авито) */
+        .btn-buy { display: inline-flex; align-items: center; justify-content: center; padding: 18px 40px; background: var(--prussian); color: #ffffff; text-decoration: none; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: background 0.2s ease; border-radius: 2px; width: 100%; box-sizing: border-box; }
+        .btn-buy:hover { background: #000000; }
+
+        /* Технические блоки инструкции */
+        .tech-block { margin-top: 50px; border-top: 2px solid var(--text); padding-top: 25px; }
+        h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; font-weight: 700; }
+
+        /* Калькулятор разведения */
+        .calc-box { background: var(--german-gray); padding: 25px; border-radius: 4px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; border: 1px solid #eaeaea; }
+        input { padding: 12px; border: 1px solid #ccc; font-family: 'JetBrains Mono', monospace; font-size: 1rem; width: 100%; box-sizing: border-box; outline: none; background: #fff; }
         input:focus { border-color: var(--prussian); }
-        .result { font-family: 'JetBrains Mono'; font-weight: 700; color: var(--prussian); font-size: 1.2rem; }
+        .result { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--prussian); font-size: 1.4rem; }
 
-        /* tabl specific */
-        .data-sheet { border: 2px solid var(--prussian); margin-top: 20px; }
-        .ds-row { display: grid; grid-template-columns: 250px 1fr; border-bottom: 1px solid #eee; }
-        .ds-label { padding: 15px 20px; background: var(--german-gray); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; border-right: 1px solid #eee; color: var(--prussian); }
-        .ds-value { padding: 15px 20px; font-size: 0.85rem; }
+        /* Двухколоночный текст для разделов */
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .info-card { font-size: 0.9rem; color: #333; }
+        .info-card p { margin: 0 0 12px 0; }
 
-        /* FAQ */
-        details { border-bottom: 1px solid #eee; padding: 15px 0; cursor: pointer; }
-        summary { font-weight: 700; font-size: 0.9rem; list-style: none; display: flex; justify-content: space-between; }
-        summary::after { content: '+'; color: var(--prussian); }
-        details[open] summary::after { content: '−'; }
-        .faq-content { padding-top: 10px; font-size: 0.85rem; color: #555; }
+        /* Спецификация / Таблица */
+        .data-sheet { border: 1px solid var(--text); margin-top: 15px; }
+        .ds-row { display: grid; grid-template-columns: 200px 1fr; border-bottom: 1px solid #eee; }
+        .ds-row:last-child { border-bottom: none; }
+        .ds-label { padding: 12px 15px; background: var(--german-gray); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; border-right: 1px solid #eee; color: var(--prussian); font-family: 'JetBrains Mono', monospace; }
+        .ds-value { padding: 12px 15px; font-size: 0.85rem; }
 
-        /* indicator podlinn */
-        .auth-box { border: 1px dashed var(--prussian); padding: 25px; display: flex; flex-direction: column; gap: 15px; margin-top: 20px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .auth-controls { display: flex; gap: 15px; width: 100%; }
-        #auth-status { font-weight: 700; font-size: 0.75rem; text-transform: uppercase; display: none; padding: 10px; border-radius: 4px; }
-        .status-ok { color: var(--success); border-left: 4px solid var(--success); background: rgba(40, 167, 69, 0.05); }
-        .status-fail { color: var(--error); border-left: 4px solid var(--error); background: rgba(220, 53, 69, 0.05); }
+        /* Предупреждение */
+        .danger-box { border-left: 4px solid var(--accent-red); background: rgba(220, 53, 69, 0.03); padding: 20px; margin-top: 20px; font-size: 0.85rem; }
+        .danger-box strong { color: var(--accent-red); text-transform: uppercase; display: block; margin-bottom: 5px; letter-spacing: 1px; }
 
-        .btn { display: inline-block; padding: 15px 50px; background: var(--prussian); color: #fff; text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: 0.3s; }
-        .btn:hover { background: #000; }
-
-        footer { padding: 100px 0 40px; font-size: 0.7rem; border-top: 1px solid #eee; margin-top: 60px; color: #666; text-align: center; }
+        footer { padding: 80px 0 40px; font-size: 0.7rem; border-top: 1px solid #eee; margin-top: 80px; color: #666; text-align: center; letter-spacing: 1px; font-family: 'JetBrains Mono', monospace; }
     </style>
 </head>
 <body>
-
-<header>
-    <div class="logo">TROPFEN-BRUCH</div>
-    <div style="font-size: 0.6rem; letter-spacing: 3px; margin-top: 10px; color: #666;">PRÄZISIONS-FOTOCHEMIE 2026</div>
-</header>
 
 <div class="brand-bar">
     <div class="watermark-grid" id="wm-grid"></div>
 </div>
 
 <div class="container">
-    <!-- krasel (3 slaida) -->
-    <div class="carousel-container">
-        <div class="carousel-track" id="track">
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
+    
+    <!-- Секция Продукта -->
+    <section class="hero-section">
+        <div class="product-image-container">
+            <!-- Замените 'product.jpg' на реальное имя файла вашей фотографии товара -->
+            <img src="product.jpg" alt="TROPFEN-BRUCH Смачивающий агент" class="product-image" onerror="this.src='https://unsplash.com';">
         </div>
-        <div class="nav-dots">
-            <div class="dot active" onclick="move(0)"></div>
-            <div class="dot" onclick="move(1)"></div>
-            <div class="dot" onclick="move(2)"></div>
+        <div class="product-info">
+            <h1>Tropfen-Bruch</h1>
+            <div class="subtitle">WETTING AGENT // НАЦИОНАЛЬНЫЙ СТАНДАРТ 2026</div>
+            <div class="description">
+                <p>Профессиональный смачивающий агент для финальной обработки черно-белых фотопленок. Снижает поверхностное натяжение воды, обеспечивая равномерный сток жидкости. Предотвращает появление следов от высохших капель, известкового налета и минимизирует время сушки.</p>
+            </div>
+            <!-- Ссылка на Авито. Замените ССЫЛКА_НА_АВИТО на ваш рабочий адрес -->
+            <a href="ССЫЛКА_НА_АВИТО" target="_blank" class="btn-buy">Купить на Avito</a>
         </div>
-    </div>
+    </section>
 
-    <!-- kalkulated -->
+    <!-- Калькулятор разведения -->
     <section class="tech-block">
-        <h2>Калькулятор разведения (1:300)</h2>
+        <h2>02. Приготовление рабочего раствора (Пропорция 1:300)</h2>
         <div class="calc-box">
             <div>
-                <label style="font-size: 0.7rem; font-weight: 700;">ОБЪЕМ ВОДЫ (МЛ):</label>
-                <input type="number" id="waterInput" placeholder="Например: 1000" oninput="calculate()">
+                <label style="font-size: 0.7rem; font-weight: 700; font-family: 'JetBrains Mono'; text-transform: uppercase; display: block; margin-bottom: 8px;">Объем воды (мл):</label>
+                <input type="number" id="waterInput" placeholder="Например: 400 или 600" oninput="calculate()">
             </div>
             <div>
-                <label style="font-size: 0.7rem; font-weight: 700;">ДОЗА КОНЦЕНТРАТА:</label>
-                <div class="result" id="res">0 мл</div>
+                <label style="font-size: 0.7rem; font-weight: 700; font-family: 'JetBrains Mono'; text-transform: uppercase; display: block; margin-bottom: 8px;">Доза концентрата:</label>
+                <div class="result" id="res">0.0 мл</div>
+            </div>
+        </div>
+        <p style="font-size: 0.8rem; color: #555; margin-top: 10px;">* Приготовленным раствором за одну сессию можно обработать до 5 фотопленок. Для наилучшего результата используйте дистиллированную воду.</p>
+    </section>
+
+    <!-- Инструкция и Применение -->
+    <section class="tech-block">
+        <h2>03. Способ применения и Агитация</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <p><strong>Подготовка:</strong> Взболтайте флакон с концентратом. Отмерьте необходимый объем и добавьте в емкость с водой, тщательно перемешайте. Залейте рабочий раствор в бачок после завершения основного цикла промывки.</p>
+            </div>
+            <div class="info-card">
+                <p><strong>Процесс:</strong> Во избежание избыточного вспенивания не встряхивайте бачок. Выполните 3–5 плавных переворотов или аккуратно прокрутите спираль в течение 20 секунд. Оставьте пленку в растворе на 1 минуту. Слейте раствор. Финальная промывка водой не требуется. Извлеките пленку и повесьте сушиться.</p>
             </div>
         </div>
     </section>
 
-
-<!-- instraction -->
-<style>
-    :root {
-        --prussian: #003153; /* deep blue */
-        --german-gray: #f4f4f4; /* light-gray text */
-    }
-    .instruction-details {
-        background-color: var(--prussian);
-        color: var(--german-gray);
-        border-radius: 2px; /*  */
-        margin: 20px 0;
-        font-family: 'Inter', Helvetica, Arial, sans-serif;
-        overflow: hidden;
-        border-left: 4px solid #7a7a7a; /*  */
-    }
-    .instruction-summary {
-        padding: 15px 20px;
-        cursor: pointer;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        font-size: 14px;
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .instruction-summary::-webkit-details-marker {
-        display: none;
-    }
-    .instruction-summary::after {
-        content: '+';
-        font-size: 18px;
-    }
-    details[open] .instruction-summary::after {
-        content: '−';
-    }
-    .instruction-content {
-        padding: 0 20px 20px 20px;
-        font-size: 15px;
-        line-height: 1.6;
-        border-top: 1px solid rgba(244, 244, 244, 0.1);
-    }
-    .instruction-content p {
-        margin: 12px 0;
-    }
-    .warning-box {
-        border: 1px solid #ff4d4d;
-        padding: 10px;
-        margin-top: 15px;
-        font-size: 13px;
-        background: rgba(255, 77, 77, 0.1);
-    }
-</style>
-
-<details class="instruction-details">
-    <summary class="instruction-summary">
-        ANLEITUNG / ИНСТРУКЦИЯ TROPFEN-BRUCH
-    </summary>
-    <div class="instruction-content">
-        <p><strong>Назначение:</strong> Смачивающий агент для финальной обработки черно-белых фотоплёнок. Снижает поверхностное натяжение воды, обеспечивая равномерный сток жидкости. Предотвращает появление следов от высохших капель, известкового налета и минимизирует время сушки..</p>
-        <p><strong>Приготовление рабочего раствора (Пропорция 1:300):</strong> Для достижения наилучшего результата используйте только дистиллированную воду:
-Приготовленным раствором за одну сессию можно обработать до 5-7 фотопленок. 
-</p>
-        <p><strong>Способ применения в фотобачке:</strong> Залейте рабочий раствор в бачок после завершения основного цикла промывки.
-Агитация: Во избежание избыточного вспенивания не встряхивайте бачок. Выполните 3–5 плавных переворота или аккуратно прокрутите спираль в течение 30 секунд. Оставьте пленку в растворе на 1 минуту. Слейте раствор. Финальная промывка водой не требуется. Извлеките пленку и повесьте сушиться. Использование щипцов-водосгонов не обязательно.
-</p>
-<p><strong>Хранение и повторное использование:</strong> Срок хранения: Готовый (разведенный) рабочий раствор быстро теряет стабильность. В нем могут завестись микроорганизмы или плесень, которые физически разрушают желатиновый слой эмульсии. Рекомендуется использовать свежий раствор для каждой сессии.
-Контроль качества: Для архивной печати и ответственных съемок используйте метод однократного применения. При появлении в растворе мути или хлопьев его следует немедленно утилизировать.
-</p>
-<p><strong>Меры предосторожности:</strong> Беречь от огня. Рабочий раствор полностью пожаробезопасен. Безопасность: Не допускать попадания неразбавленного средства на эмульсию. При попадании в глаза промыть водой.
-Цветные пленки: Для цветных процессов C-41 или E-6 смачиватель не заменяет финальный стабилизатор. Использование только смачивателя без стабилизатора может привести к выцветанию красителей со временем. В цветной пленке после проявки остаются красители, которые со временем могут разрушаться, если их не «законсервировать» специальным стабилизирующим составом. Если вы снимаете на ЧБ пленку, проявляемую по цветному процессу C-41 (например, Ilford XP2 Super), ей стабилизатор желателен так же, как и обычной цветной пленке. Поскольку это монохромная пленка, работающая по цветному процессу (C-41), ее изображение состоит из красителей. Смачиватель обеспечит чистую сушку без пятен, но не обеспечит долгосрочную защиту красителей от выцветания, которую дает штатный стабилизатор процесса C-41. 
-Если на кассете или коробке указано «Process C-41», пленка требует стабилизатора для долговечности красителей, хотя смачива-тель Tropfen-Bruch безопасен для её эмульсии в процессе сушки.
-Риск передозировки: Превышение концентрации (более 1:300) может оставить на эмульсии липкий налет или белесые разводы, которые придется перемывать.
-</p>
-
-        <div class="warning-box">
-            <strong>ВНИМАНИЕ!:</strong> Хранить вдали от источников огня УФ излучения. Беречь от детей.
-        </div>
-    </div>
-</details>
-
-
-    <!-- Карта совместимости -->
+    <!-- Хранение и Цветные пленки -->
     <section class="tech-block">
-        <h2>Карта совместимости оборудования</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h2>04. Хранение и повторный заказ</h2>
+                <p>Готовый рабочий раствор быстро теряет стабильность. В нем могут завестись микроорганизмы, разрушающие желатиновый слой эмульсии. Рекомендуется использовать свежий раствор для каждой сессии.</p>
+                <p><strong>Контроль качества:</strong> Для архивной печати используйте метод однократного применения. При появлении мути или хлопьев раствор утилизировать.</p>
+            </div>
+            <div class="info-card">
+                <h2>05. Специфика цветных пленок</h2>
+                <p>Для процессов С-41 или Е-6 смачиватель не заменяет финальный стабилизатор. Использование только смачивателя может привести к выцветанию красителей со временем. Превышение концентрации (более 1:300) может оставить липкий налет или белесые разводы.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Состав и Меры безопасности -->
+    <section class="tech-block">
+        <h2>06. Техническая спецификация</h2>
         <div class="data-sheet">
-            <div class="ds-row"><div class="ds-label">Бачки</div><div class="ds-value">Jobo (серии 1500, 2500), Paterson Super System 4, Kaiser, AP Compact.</div></div>
-            <div class="ds-row"><div class="ds-label">Сканеры</div><div class="ds-value">Nikon Coolscan(чистка рам), Epson Perfection V-Series(чистка рам), Hasselblad Flextight (чистка рам).</div></div>
-    
-        </div>
-    </section>
-
-    <!-- FAQ  -->
-    <section class="tech-block">
-        <h2>FAQ / Сложные случаи</h2>
-        <details>
-            <summary>Что делать при экстремально жесткой воде?</summary>
-            <div class="faq-content">Увеличьте концентрацию до 1:250 и используйте дистиллированную воду для финального раствора.</div>
-        </details>
-        
-    </section>
-
-    <!--  -->
-    <section class="tech-block">
-        <h2>Проверка подлинности</h2>
-        <div class="auth-box" id="authBox">
-            <div class="auth-controls">
-                <input type="text" id="serialInput" placeholder="TB-XXXX-XXXX" style="flex: 2; text-transform: uppercase;">
-                <button class="btn" style="margin:0; padding: 12px;" onclick="checkSerial()">ПРОВЕРИТЬ</button>
+            <div class="ds-row">
+                <div class="ds-label">Состав / Ingredients</div>
+                <div class="ds-value">Aqua d., Dimethylcarbinol, Decyl Glucoside, Propylene Glycol, Phenoxyethanol, Ethylhexylglycerin.</div>
             </div>
-            <div id="auth-status"></div>
-        </div>
-        <p style="font-size: 0.65rem; color: #999; margin-top: 10px;">* Введите 10-значный код с лазерной гравировки флакона.</p>
-    </section>
-
-    <footer>
-        QUALITÄT STANDARDS 2026<br>
-        TROPFEN-BRUCH TECHNISCHE CHEMIE.
-    </footer>
-</div>
-
-<script>
-    // Инициализация фона
-    const wm = document.getElementById('wm-grid');
-    wm.innerHTML = '<span>TROPFEN-BRUCH</span>'.repeat(1000);
-
-    // Управление каруселью
-    const track = document.getElementById('track');
-    const dots = document.querySelectorAll('.dot');
-    function move(i) {
-        track.style.transform = `translateX(-${i * 100}%)`;
-        dots.forEach(d => d.classList.remove('active'));
-        dots[i].classList.add('active');
-    }
-
-    
-    let currentSlide = 0;
-    setInterval(() => {
-        currentSlide = (currentSlide + 1) % 3;
-        move(currentSlide);
-    }, 5000);
-
-    
-    function calculate() {
-        const val = document.getElementById('waterInput').value;
-        document.getElementById('res').textContent = val ? (val / 300).toFixed(1) + ' мл' : '0 мл';
-    }
-
-    // 
-    // 
-    const trustedHashes = [
-        "1858c894208a0d78278297b41198f39546051787c805a698a9643485750259e5",
-        "290680678d8a57e3f89069d3111f2693892708365287e076615598687428e219",
-        "597b830d1c071d0e5170d9a690e72c8427f71786576620593679815049377484"
-    ];
-
-    async function checkSerial() {
-        const input = document.getElementById('serialInput').value.trim().toUpperCase();
-        const statusDiv = document.getElementById('auth-status');
-        const authBox = document.getElementById('authBox');
-
-        if (!input) return;
-
-        //
-        const msgBuffer = new TextEncoder().encode(input);
-        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        const inputHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-
-        statusDiv.style.display = "block";
-
-        // 
-        const isMatch = trustedHashes.includes(inputHash) || (input.startsWith("TB-") && input.length >= 12);
-
-        if (isMatch) {
-            statusDiv.textContent = "✓ ПОДЛИННОСТЬ ПОДТВЕРЖДЕНА: Оригинальный состав 2026";
-            statusDiv.className = "status-ok";
-            authBox.style.borderColor = "var(--success)";
-        } else {
-            statusDiv.textContent = "⚠ ОШИБКА: Код не найден в реестре TROPFEN-BRUCH";
-            statusDiv.className = "status-fail";
-            authBox.style.borderColor = "var(--error)";
-        }
-    }
-</script>
-
-
-
-</body>
-</html>
-
+            <div class="ds-row">
+                <div class="ds-label">Срок годности</div>
+                <div class="ds-value">24 месяца со дня изготовления при температуре от +5°C до +25°C. Хранить вдали от УФ.</div>
+            </div>
+            <div class="ds-row">
+                <div class="ds-label">Стандарт</div>
