@@ -1,2 +1,2 @@
-# Tropfen-bruch
-Tropfen-bruch Laboratory
+# Смачиватель для фотоплёнки
+WETTING AGENT
