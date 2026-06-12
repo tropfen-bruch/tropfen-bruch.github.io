@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TROPFEN-BRUCH | Смачивающий агент 2026</title>
+    <title>Смачивающий агент для фотопленок | Техническая химия</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
     <style>
         :root { 
             --prussian: #1a3a5f; 
@@ -15,101 +14,70 @@
             --text: #111111; 
             --accent-red: #dc3545;
         }
-        
         body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; color: var(--text); background: #ffffff; line-height: 1.6; }
-        
-        /* Техническая полоса с водяным знаком */
         .brand-bar { height: 35px; background-color: var(--prussian); width: 100%; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .watermark-grid { position: absolute; width: 200%; height: 500%; display: flex; flex-wrap: wrap; transform: rotate(-15deg); align-content: center; justify-content: center; pointer-events: none; gap: 8px 16px; }
         .watermark-grid span { color: rgba(255, 255, 255, 0.15); font-size: 8px; font-weight: 900; text-transform: uppercase; white-space: nowrap; font-family: 'JetBrains Mono', monospace; }
-
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-
-        /* Главная витрина товара */
         .hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-bottom: 60px; align-items: center; }
-        
         .product-image-container { background: var(--german-gray); border-radius: 4px; padding: 20px; text-align: center; border: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; min-height: 450px; }
         .product-image { max-width: 100%; max-height: 450px; object-fit: contain; }
-
-        .product-info h1 { font-size: 2.5rem; font-weight: 900; letter-spacing: -1px; margin: 0 0 10px 0; text-transform: uppercase; }
+        .product-info h1 { font-size: 2.3rem; font-weight: 900; letter-spacing: -1px; margin: 0 0 10px 0; text-transform: uppercase; }
         .product-info .subtitle { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #666; letter-spacing: 2px; margin-bottom: 25px; }
         .product-info .description { font-size: 1.05rem; margin-bottom: 30px; color: #333; }
-
-        /* Кнопка Купить (Авито) */
         .btn-buy { display: inline-flex; align-items: center; justify-content: center; padding: 18px 40px; background: var(--prussian); color: #ffffff; text-decoration: none; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: background 0.2s ease; border-radius: 2px; width: 100%; box-sizing: border-box; }
         .btn-buy:hover { background: #000000; }
-
-        /* Технические блоки инструкции */
         .tech-block { margin-top: 50px; border-top: 2px solid var(--text); padding-top: 25px; }
         h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; font-weight: 700; }
-
-        /* Калькулятор разведения */
         .calc-box { background: var(--german-gray); padding: 25px; border-radius: 4px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; border: 1px solid #eaeaea; }
         input { padding: 12px; border: 1px solid #ccc; font-family: 'JetBrains Mono', monospace; font-size: 1rem; width: 100%; box-sizing: border-box; outline: none; background: #fff; }
         input:focus { border-color: var(--prussian); }
         .result { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--prussian); font-size: 1.4rem; }
-
-        /* Двухколоночный текст для разделов */
         .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .info-card { font-size: 0.9rem; color: #333; }
         .info-card p { margin: 0 0 12px 0; }
-
-        /* Спецификация / Таблица */
         .data-sheet { border: 1px solid var(--text); margin-top: 15px; }
         .ds-row { display: grid; grid-template-columns: 200px 1fr; border-bottom: 1px solid #eee; }
         .ds-row:last-child { border-bottom: none; }
         .ds-label { padding: 12px 15px; background: var(--german-gray); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; border-right: 1px solid #eee; color: var(--prussian); font-family: 'JetBrains Mono', monospace; }
         .ds-value { padding: 12px 15px; font-size: 0.85rem; }
-
-        /* Предупреждение */
         .danger-box { border-left: 4px solid var(--accent-red); background: rgba(220, 53, 69, 0.03); padding: 20px; margin-top: 20px; font-size: 0.85rem; }
         .danger-box strong { color: var(--accent-red); text-transform: uppercase; display: block; margin-bottom: 5px; letter-spacing: 1px; }
-
         footer { padding: 80px 0 40px; font-size: 0.7rem; border-top: 1px solid #eee; margin-top: 80px; color: #666; text-align: center; letter-spacing: 1px; font-family: 'JetBrains Mono', monospace; }
     </style>
 </head>
 <body>
-
 <div class="brand-bar">
     <div class="watermark-grid" id="wm-grid"></div>
 </div>
-
 <div class="container">
-    
-    <!-- Секция Продукта -->
     <section class="hero-section">
         <div class="product-image-container">
-            <!-- Замените 'product.jpg' на реальное имя файла вашей фотографии товара -->
-            <img src="product.jpg" alt="TROPFEN-BRUCH Смачивающий агент" class="product-image" onerror="this.src='https://unsplash.com';">
+            <img src="product.jpg" alt="Смачивающий агент для фотопленок" class="product-image" onerror="this.src='https://unsplash.com';">
         </div>
         <div class="product-info">
-            <h1>Tropfen-Bruch</h1>
-            <div class="subtitle">WETTING AGENT // НАЦИОНАЛЬНЫЙ СТАНДАРТ 2026</div>
+            <h1>Смачивающий агент</h1>
+            <div class="subtitle">WETTING AGENT</div>
             <div class="description">
-                <p>Профессиональный смачивающий агент для финальной обработки черно-белых фотопленок. Снижает поверхностное натяжение воды, обеспечивая равномерный сток жидкости. Предотвращает появление следов от высохших капель, известкового налета и минимизирует время сушки.</p>
+                <p>Высокоэффективный смачивающий агент для финальной обработки черно-белых фотопленок. Снижает поверхностное натяжение воды, обеспечивая равномерный сток жидкости. Предотвращает появление следов от высохших капель, известкового налета и минимизирует время сушки.</p>
             </div>
-            <!-- Ссылка на Авито. Замените ССЫЛКА_НА_АВИТО на ваш рабочий адрес -->
-            <a href="ССЫЛКА_НА_АВИТО" target="_blank" class="btn-buy">Купить на Avito</a>
+            <a href="https://www.avito.ru/omsk/orgtehnika_i_rashodniki/smachivatel_dlya_fotoplenki_na_30_l_7878873937?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiI5b25Kc2NvbUJ0U0RnYnlTIjt9kjXojj8AAAA" target="_blank" class="btn-buy">Купить</a>
         </div>
     </section>
-
-    <!-- Калькулятор разведения -->
     <section class="tech-block">
         <h2>02. Приготовление рабочего раствора (Пропорция 1:300)</h2>
         <div class="calc-box">
             <div>
                 <label style="font-size: 0.7rem; font-weight: 700; font-family: 'JetBrains Mono'; text-transform: uppercase; display: block; margin-bottom: 8px;">Объем воды (мл):</label>
-                <input type="number" id="waterInput" placeholder="Например: 400 или 600" oninput="calculate()">
+                <input type="number" id="waterInput" placeholder="Например: 400 или 600" oninput="runCalculation()">
             </div>
             <div>
                 <label style="font-size: 0.7rem; font-weight: 700; font-family: 'JetBrains Mono'; text-transform: uppercase; display: block; margin-bottom: 8px;">Доза концентрата:</label>
-                <div class="result" id="res">0.0 мл</div>
+                <div class="result" id="res">0.00 мл</div>
             </div>
         </div>
-        <p style="font-size: 0.8rem; color: #555; margin-top: 10px;">* Приготовленным раствором за одну сессию можно обработать до 5 фотопленок. Для наилучшего результата используйте дистиллированную воду.</p>
+        <p style="font-size: 0.8rem; color: #555; margin-top: 10px;">* На 400 мл воды требуется 1.3 мл концентрата. На 600 мл воды требуется 2.0 мл концентрата. Приготовленным раствором за одну сессию можно обработать до 5 фотопленок. Для наилучшего результата используйте дистиллированную воду.</p>
     </section>
-
-    <!-- Инструкция и Применение -->
     <section class="tech-block">
         <h2>03. Способ применения и Агитация</h2>
         <div class="info-grid">
@@ -117,27 +85,24 @@
                 <p><strong>Подготовка:</strong> Взболтайте флакон с концентратом. Отмерьте необходимый объем и добавьте в емкость с водой, тщательно перемешайте. Залейте рабочий раствор в бачок после завершения основного цикла промывки.</p>
             </div>
             <div class="info-card">
-                <p><strong>Процесс:</strong> Во избежание избыточного вспенивания не встряхивайте бачок. Выполните 3–5 плавных переворотов или аккуратно прокрутите спираль в течение 20 секунд. Оставьте пленку в растворе на 1 минуту. Слейте раствор. Финальная промывка водой не требуется. Извлеките пленку и повесьте сушиться.</p>
+                <p><strong>Процесс:</strong> Во избежание избыточного вспенивания не встряхивайте бачок. Выполните 3–5 плавных переворотов или аккуратно прокрутите спираль в течение 20 секунд. Оставьте пленку в растворе на 1 минуту. Слейте раствор. Финальная промывка водой не требуется. Извлеките пленку и повесьте сушиться. Использование щипцов-водосгонов не обязательно.</p>
             </div>
         </div>
     </section>
-
-    <!-- Хранение и Цветные пленки -->
     <section class="tech-block">
         <div class="info-grid">
             <div class="info-card">
-                <h2>04. Хранение и повторный заказ</h2>
-                <p>Готовый рабочий раствор быстро теряет стабильность. В нем могут завестись микроорганизмы, разрушающие желатиновый слой эмульсии. Рекомендуется использовать свежий раствор для каждой сессии.</p>
-                <p><strong>Контроль качества:</strong> Для архивной печати используйте метод однократного применения. При появлении мути или хлопьев раствор утилизировать.</p>
+                <h2>04. Хранение и повторное использование</h2>
+                <p>Готовый (разведенный) рабочий раствор быстро теряет стабильность. В нем могут завестись микроорганизмы или плесень, которые физически разрушают желатиновый слой эмульсии. Рекомендуется использовать свежий раствор для каждой сессии.</p>
+                <p><strong>Контроль качества:</strong> Для архивной печати и ответственных съемок используйте метод однократного применения. При появлении в рабочем растворе мути или хлопьев его следует немедленно утилизировать.</p>
             </div>
             <div class="info-card">
                 <h2>05. Специфика цветных пленок</h2>
-                <p>Для процессов С-41 или Е-6 смачиватель не заменяет финальный стабилизатор. Использование только смачивателя может привести к выцветанию красителей со временем. Превышение концентрации (более 1:300) может оставить липкий налет или белесые разводы.</p>
+                <p>Для цветных процессов С-41 или Е-6 смачиватель не заменяет финальный стабилизатор. Использование только смачивателя может привести к выцветанию красителей со временем. В цветной пленке после проявки остаются красители, которые со временем могут разрушаться, если их не «законсервировать» специальным стабилизирующим составом.</p>
+                <p>Если вы снимаете на ЧБ пленку, проявляемую по цветному процессу С-41 (например, Ilford XP2 Super), ей стабилизатор желателен так же, как и обычной цветной пленке. Смачиватель обеспечит чистую сушку без пятен, но не обеспечит долгосрочную защиту красителей от выцветания.</p>
             </div>
         </div>
     </section>
-
-    <!-- Состав и Меры безопасности -->
     <section class="tech-block">
         <h2>06. Техническая спецификация</h2>
         <div class="data-sheet">
@@ -147,7 +112,44 @@
             </div>
             <div class="ds-row">
                 <div class="ds-label">Срок годности</div>
-                <div class="ds-value">24 месяца со дня изготовления при температуре от +5°C до +25°C. Хранить вдали от УФ.</div>
+                <div class="ds-value">24 месяца с даты изготовления при температуре от +5°C до +25°C. Хранить вдали от УФ. К чистоте ваших негативов.</div>
             </div>
             <div class="ds-row">
                 <div class="ds-label">Стандарт</div>
+                <div class="ds-value">ТУ 20.59.52-001-553504625002-2026</div>
+            </div>
+        </div>
+        <div class="danger-box">
+            <strong>Осторожно!</strong>
+            Беречь от детей. Рабочий раствор полностью пожаробезопасен. Безопасность: не допускать попадания неразбавленного средства на эмульсию. При попадании в глаза промыть водой. Превышение концентрации (более 1:300) может оставить на эмульсии липкий налет или белесые разводы, которые придется перемывать.
+        </div>
+    </section>
+</div>
+<footer>
+    СДЕЛАНО В РОССИИ // ТУ 20.59.52-001-553504625002-2026
+</footer>
+<script>
+    const grid = document.getElementById('wm-grid');
+    if (grid) {
+        for (let i = 0; i < 40; i++) {
+            const span = document.createElement('span');
+            span.innerText = 'WETTING AGENT 1:300 ';
+            grid.appendChild(span);
+        }
+    }
+    function runCalculation() {
+        const inputField = document.getElementById('waterInput');
+        const displayDiv = document.getElementById('res');
+        if (inputField && displayDiv) {
+            const waterVolume = parseFloat(inputField.value);
+            if (!isNaN(waterVolume) && waterVolume > 0) {
+                const result = (waterVolume / 300).toFixed(2);
+                displayDiv.innerText = result + ' мл';
+            } else {
+                displayDiv.innerText = '0.00 мл';
+            }
+        }
+    }
+</script>
+</body>
+</html>
